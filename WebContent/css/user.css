@@ -1,0 +1,294 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*个人用户中*/
+.main_con{
+	width:1200px;
+	margin:0 auto;
+	background:url(../images/left_bg.jpg) repeat-y;
+}
+/*左侧用户功能菜单栏*/
+.left_menu_con{
+	width:200px;
+	text-align:center;
+}
+.left_menu_con h3{
+	line-height:40px;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+	margin-bottom:10px;
+}
+.left_menu_con ul li{
+	line-height:40px;
+	font-size:14px;
+}
+.left_menu_con ul li a{
+	color:#666;
+}
+.left_menu_con ul li .active{
+	color:#ff8800;
+	font-weight:bold;
+}
+
+/*右侧功能详情展示布局*/
+.right_content{
+	width:980px;
+	float:right;
+	min-height:500px;
+}
+
+/*JS控制显示*/
+.site_con,.info_con,.order_icon{
+	padding:10px 0;
+	margin-bottom:20px;
+	display:none;
+}
+.info_con{
+	display:block;	
+}
+/*小标题*/
+.common_title2{
+	height:20px;
+	line-height:20px;
+	margin:10px 0;
+}
+
+/*1、个人信息*/
+
+/*信息展示*/
+.user_info_list{
+	background-color:#f9f9f9;
+	margin:10px 0 15px;
+	padding:10px 0;
+	height:90px;
+}
+
+.user_info_list li{
+	line-height:30px;
+	text-indent:30px;
+	font-size:14px;
+}
+
+.user_info_list li span{
+	width:100px;
+	text-align:right;
+}
+/*浏览记录*/
+.goods_type_list{
+	margin:10px auto 0;
+	background-color:#f9f9f9;
+}
+.goods_type_list li{
+	width:196px;
+	float:left;
+	margin-bottom:10px
+}
+
+.goods_type_list li img{
+	width:160px;
+	height:160px;
+	display:block;
+	margin:10px auto;
+}
+.goods_type_list li h4{
+	width:160px;
+	margin:0 auto;
+}
+.goods_type_list li h4 a{
+	font-weight:normal;
+	color:#666;
+	display:block;
+	text-align:center;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+/*价格样式*/
+.operate{
+	width:160px;
+	margin:10px auto;
+	position:relative;
+}
+.operate .prize{
+	color:#da260e; 
+	font-size:14px;
+} 
+.operate .unit{
+	color:#999;
+	font-size:14px;
+	padding-left:10px;
+}
+.operate .add_goods{
+	display:inline-block;
+	width:15px;
+	height:15px;
+	background:url(../images/shop_cart.png);
+	position:absolute;
+	right:0;
+	top:3px;
+}
+
+/*2、订单样式*/
+/*订单状态*/
+.order_list_th{
+	width:1198px;
+	border:1px solid #ddd;
+	background-color:#f7f7f7;
+	margin:20px auto 0;
+}
+.order_list_th li{
+	float:left;
+	height:30px;
+	line-height:30px;
+}
+.order_list_th .col01{
+	width:20%;
+	margin-left:20px;
+}
+.order_list_th .col02{
+	width:20%;
+}
+
+.order_list_table{
+	width:1200px;
+	border-collapse:collapse;
+	border-spacing:0px;
+	border:1px solid #ddd;
+	margin:-1px auto 0;
+}
+
+.order_list_table td{
+	border:1px solid #ddd;	
+	text-align:center;
+}
+/*调整宽度*/
+.w980{
+	width:980px;
+}
+.w978{
+	width:978px;
+}
+
+.order_goods_list{
+	border-bottom:1px solid #ddd
+	margin-bottom:-2px;
+}
+.order_goods_list li{
+	float:left; 
+	height:80px;
+	line-height:80px;
+}
+.order_goods_list .col01{width:20%}
+.order_goods_list .col01 img{
+	width:60px;
+	height:60px;
+	border:1px solid #ddd;
+	margin:10px auto;
+}
+.order_goods_list .col02{
+	width:50%;
+	text-align:left;
+}
+.order_goods_list .col02 em{
+	color:#999;
+	margin-left:10px;
+}
+.order_goods_list .col03{width:10%}
+.order_goods_list .col04{width:20%}
+
+/*去付款*/
+.oper_btn{
+	display:inline-block;
+	border:1px solid #ddd;
+	color:#666;
+	padding:5px 10px;
+}
+
+/*3、地址管理样式*/
+
+.site_top,.site_btm{
+	background-color:#f9f9f9;
+}
+/*默认收获地址样式*/
+.site_con dt{
+	line-height:30px;
+	text-indent:30px;
+	font-weight:bold;
+}
+.site_con dd{
+	line-height:30px;
+	text-indent:30px;
+}
+
+/*编辑收获地址表单样式*/
+
+.site_con .form_group{
+	height:40px;
+	line-height:40px;
+	margin-top:10px;
+}
+.site_con .form_group label{
+	float:left;
+	width:100px;
+	text-align:right;
+	height:40px;
+	line-height:40px;	
+}
+.site_con .form_group input{
+	float:left;
+	width:300px;
+	height:25px;
+	border:1px solid #ddd;
+	outline:none;/*去轮廓*/
+	margin-top:7px;
+	text-indent:10px;/*首行缩进*/
+}
+.site_con .form_group2{
+	height:90px;
+}
+.site_area{
+	width:280px;
+	height:60px;
+	border:1px solid #ddd;
+	outline:none;
+	padding:10px;
+}
+.info_submit{
+	width:80px;
+	height:30px;
+	background-color:#37ab40;
+	border:0px;
+	color:#fff;
+	margin:10px 0 10px 200px;
+	cursor:pointer;
+}
+
+.stress{
+	color:#ff8800;
+}
+
+/* 分页样式 */
+.pagenation{
+	height:32px;
+	text-align:center;
+	margin:30px auto;
+}
+.pagenation li{
+	display:inline-block;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.pagenation ul li a {
+	float: left;
+	padding: 4px 12px;
+	line-height: 20px;
+	background-color:#CCC;
+	border: 1px solid #d3dbde;
+	color: #08c;
+}
+.pagenation .active{
+	background-color:gold;
+	color:#43a200;
+}
+.pagenation ul li a:hover{
+	color: red;
+}

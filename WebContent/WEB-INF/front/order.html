@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>天天生鲜-支付管理</title>
+ <link rel="shortcut icon" href="images/copylogo.png">
+ <link rel="stylesheet" href="css/reset.css">
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+<div id="../">
+	<!-- 头部  -->
+	<div class="header_con">
+    	<div class="header">
+    		<div class="welcome fl">欢迎来到天天生鲜</div>
+    		<div class="fr" id="head_info">
+             </div>  
+    	</div>
+    </div>
+    
+    <!-- 搜素框 -->
+    <div class="search_bar clearfix">
+        <a href="index.html" class="logo fl"><img src="images/logo.png"></a>
+        <div class="search_con fl">
+            <input type="text" placeholder="搜素商品" name="" class="input_text fl">
+            <input type="button" value="搜索" class="input_btn fr">
+        </div>
+    </div>
+</div>
+   	<!-- 订单列表 -->
+    
+	<div class="common_list_con clearfix" id="order_list">
+		<ul class="goods_list_th clearfix">
+			<li class="col01">商品名称</li>
+			<li class="col03">商品单位</li>
+			<li class="col03">商品价格</li>
+			<li class="col02">数量</li>
+			<li class="col03">小计</li>		
+		</ul>
+	</div>
+	<div class="order_list_con" id="order_list">
+		<div class="order_title">2019-12-12&nbsp;&nbsp;&nbsp;&nbsp; 订单号：2132342432434343<a href="">去支付</a></div>
+		<ul class="goods_list_td clearfix">
+			<li class="col01">1</li>			
+			<li class="col02"><img src="images/goods/goods012.jpg"></li>
+			<li class="col03">奇异果</li>
+			<li class="col04">500g</li>
+			<li class="col04">25.80元</li>
+			<li class="col03">1</li>
+			<li class="col04">25.80元</li>	
+		</ul>
+		<ul class="goods_list_td clearfix">
+			<li class="col01">1</li>			
+			<li class="col02"><img src="images/goods/goods012.jpg"></li>
+			<li class="col03">奇异果</li>
+			<li class="col04">500g</li>
+			<li class="col04">25.80元</li>
+			<li class="col03">1</li>
+			<li class="col04">25.80元</li>	
+		</ul>
+		
+		<div class="order_title">2019-12-12&nbsp;&nbsp;&nbsp;&nbsp; 订单号：2132342432434343<span>已完成</span></div>
+		<ul class="goods_list_td clearfix">
+			<li class="col01">1</li>			
+			<li class="col02"><img src="images/goods/goods012.jpg"></li>
+			<li class="col03">奇异果</li>
+			<li class="col04">500g</li>
+			<li class="col04">25.80元</li>
+			<li class="col03">1</li>
+			<li class="col04">25.80元</li>	
+		</ul>
+		<ul class="goods_list_td clearfix">
+			<li class="col01">1</li>			
+			<li class="col02"><img src="images/goods/goods012.jpg"></li>
+			<li class="col03">奇异果</li>
+			<li class="col04">500g</li>
+			<li class="col04">25.80元</li>
+			<li class="col03">1</li>
+			<li class="col04">25.80元</li>	
+		</ul>
+	</div>
+        
+    <!-- 版权所有 -->
+	<div class="footer">
+    	<div class="foot_link">
+    		<a href="#">关于我们</a> <span> | </span>
+            <a href="#">联系我么</a> <span> | </span>
+            <a href="#">招聘人才</a> <span> | </span>
+            <a href="#">友情链接</a> 
+    	</div>
+    	<p>CcpyRight &copy; 2019 衡阳市源辰信息科技有限公司 All Rights Reserverd</p>
+        <p>电话：0734-8355998 湘ICP备16015987号</p>
+    </div>
+    
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	$.post("member/check", null, function(data) {
+	 	var str = "";
+	 	if(data.mno) {
+			str += '<div class="login_btn fl"><a href="#">欢迎您 &nbsp;['+data.nickName+']</a><span> | </span>';
+			str += '<a href="javascript:menberLogin()">注销</a><span> | </span><a href="register.html">注册</a></div>';
+		} else {
+			str += '<div class="login_btn fl">';
+			str += '<a href="javascript:menberLogin()">登录</a><span> | </span><a href="register.html">注册</a></div>';
+		}
+		str += '<div class="user_link fl"><span> | </span><a href="#">用户中心</a><span> | </span>';
+		str += '<a href="cart.html">我的购物车</a><span> | </span><a href="order.html">我的订单</a></div> ';
+		$("#head_info").append($(str));
+	}, "json");
+	
+	// 查询订单信息
+	/*$.post("order/getOrder", null, function(data){
+		var str = "";
+		var totalCount = 0;
+		var totalPrice = 0;
+		$.each(data, function(index, item) {
+			str += '<ul class="goods_list_td clearfix"><li class="col01">'+(index + 1)+'</li>';
+			str += '<li class="col02"><img src="'+item.pics.split(";")[0]+'"></li><li class="col03">'+item.gname+'</li>';
+			str += '<li class="col04">'+item.weight+'</li><li class="col05">'+item.price+'元</li><li class="col06">'+item.nums+'</li>';
+			str += '<li class="col07">'+(item.nums * item.price).toFixed(2)+'元</li></ul>';
+
+			totalCount += item.nums;
+			totalPrice += parseFloat((item.nums * item.price).toFixed(2));
+		});
+		
+		$("#order_list").append($(str));
+		$("#total_count").text(totalCount);
+		$("#total_price").text(totalPrice.toFixed(2) + "元");
+		$("#real_price").text((totalPrice + 10).toFixed(2) + "元");
+	}, "json")*/
+})
+
+
+
+
+$('#order_btn').click(function() {
+
+	$('.popup_con').fadeIn('fast', function() {
+
+		setTimeout(function(){
+			$('.popup_con').fadeOut('fast',function(){
+				window.location.href = 'index.html';
+			});	
+		},3000)
+		
+	});
+});
+</script>
+</body>
+</html>

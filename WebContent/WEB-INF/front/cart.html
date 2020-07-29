@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>天天生鲜-购物车</title>
+<link rel="shortcut icon" href="images/copylogo.png">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+	<!-- 头部 -->
+	<div class="header_con">
+    	<div class="header">
+    		<div class="welcome fl">欢迎来到天天生鲜</div>
+            <div class="fr">
+            	<div class="login_info fl">
+                	欢迎：<em>y c</em>
+                </div>
+            	<div class="login_btn fl">
+                	<a href="login.html">登录</a>
+                    <span>|</span>
+                    <a href="register.html">注册</a>
+                </div>
+                <div class="user_link fl">
+                 	<span> | </span>
+                    <a href="user.html">用户中心</a>
+                    <span> | </span>
+                    <a href="cart.html">我的购物车</a>
+                    <span> | </span>
+                    <a href="order.html">我的订单</a>
+                </div>
+            </div>
+    	</div>
+    </div>
+
+	<!-- 搜索框-->
+	<div class="search_bar clearfix">
+    	<a href="index.html" class="logo fl"><img src="images/logo.png"></a>
+    	<div class="search_con fl">
+        	<form>
+            	<input type="text" placeholder="搜索商品" class="input_text fl" name="key_words">
+                <input type="button" value="搜索" class="input_btn fr">
+            </form>
+        </div>
+    	<div class="guest_cart fr">
+        	<a href="" class="cart_name fl">我的购物车</a>
+            <div class="goods_count fl" id="show_count">1</div>
+        </div>
+    </div>
+    
+    <!-- 购物车 -->
+    <div class="cart_con">
+    	<h2 class="total_count">全部商品<em>1</em>件</h2>
+    	<div class="cart_list_th clearfix">
+        	<ul>
+            	<li class="col01">商品名称</li>
+            	<li class="col02">商品单位</li>
+                <li class="col03">商品价格(元)</li>
+                <li class="col04">数量</li>
+                <li class="col05">小计</li>
+                <li class="col06">操作</li>
+            </ul>
+        </div>
+    	<div class="cart_list_td clearfix">
+       		<ul>
+        		<li class="col01"><input type="checkbox" checked></li>
+            	<li class="col02"><img src="images/goods/goods003.jpg"></li>
+                <li class="col03">牛奶草莓<br><em>16.80元/500g</em></li>
+                <li class="col04">500g</li>
+                <li class="col05">16.80</li>
+                <li class="col06">
+                	<div class="num_add">
+                    	<a href="javascript:void(0)" onclick="lost(this)" class="minus fl">-</a>
+                        <input type="text" value="1" class="num_show fl">
+                        <a href="javascript:void(0)" onclick="add(this)" class="add fl">+</a>
+                    </div>
+                </li>
+                <li class="col07">16.80</li>
+                <li class="col08"><a href="javascript:;" onclick="delGoods(this)">删除</a></li>
+            </ul>
+            <ul>
+        		<li class="col01"><input type="checkbox" checked></li>
+            	<li class="col02"><img src="images/goods/goods003.jpg"></li>
+                <li class="col03">牛奶草莓<br><em>16.80元/500g</em></li>
+                <li class="col04">500g</li>
+                <li class="col05">16.80</li>
+                <li class="col06">
+                	<div class="num_add">
+                    	<a href="javascript:void(0)" onclick="lost(this)" class="minus fl">-</a>
+                        <input type="text" value="1" class="num_show fl">
+                        <a href="javascript:void(0)" onclick="add(this)" class="add fl">+</a>
+                    </div>
+                </li>
+                <li class="col07">16.80</li>
+                <li class="col08"><a href="javascript:;" onclick="delGoods(this)">删除</a></li>
+            </ul>
+            <ul>
+        		<li class="col01"><input type="checkbox" checked ></li>
+            	<li class="col02"><img src="images/goods/goods003.jpg"></li>
+                <li class="col03">牛奶草莓<br><em>16.80元/500g</em></li>
+                <li class="col04">500g</li>
+                <li class="col05">16.80</li>
+                <li class="col06">
+                	<div class="num_add">
+                    	<a href="javascript:void(0)" onclick="lost(this)" class="minus fl">-</a>
+                        <input type="text" value="1" class="num_show fl">
+                        <a href="javascript:void(0)" onclick="add(this)" class="add fl">+</a>
+                    </div>
+                </li>
+                <li class="col07">16.80</li>
+                <li class="col08"><a href="javascript:;" onclick="delGoods(this)">删除</a></li>
+            </ul>
+        </div>
+    	<div class="setElements">
+        	<ul>
+            	<li class="col01"><input type="checkbox" checked id="all"></li>
+            	<li class="col02"><label for="all">全选</label></li>
+                <li class="col03">合计(不含运费)：<span>￥</span><em id="totalPrices"></em><br>共计<b id="totalNumbers"></b>件商品</li>
+                <li class="col04"><a href="">去结算</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 版权所有 -->
+	<div class="footer">
+    	<div class="foot_link">
+    		<a href="#">关于我们</a> <span> | </span>
+            <a href="#">联系我么</a> <span> | </span>
+            <a href="#">招聘人才</a> <span> | </span>
+            <a href="#">友情链接</a> 
+    	</div>
+    	<p>CcpyRight &copy; 2019 衡阳市源辰信息科技有限公司 All Rights Reserverd</p>
+        <p>电话：0734-8355998 湘ICP备16015987号</p>
+    </div>
+    
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/car.js"></script>S
+</body>
+</html>

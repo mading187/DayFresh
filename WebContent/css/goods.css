@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*商品列表样式*/
+/* 二级页面面包屑导航 */
+.breadcrumb{
+	width:1200px;
+	height:50px;
+	margin:0 auto;
+	font-size:14px;
+}
+.breadcrumb a{
+	line-height:40px;
+	color:#37ab40;
+}
+.breadcrumb a:hover{
+	color:#ff8800;
+}
+.breadcrumb span{
+	line-height:40px;
+	color:#666;
+	padding:0 5px;
+}
+
+/*商品展示区域样式*/
+.main_wrap{
+	width:1200px;
+	margin:0 auto;
+}
+.l_wrap{
+	width:200px;
+}
+.r_wrap{
+	width:980px;
+}
+
+/* 新品推荐样式 */
+.new_goods{
+	border:1px solid #ededed;
+	border-top:2px solid #37ab40;
+	padding-bottom:10px;
+}
+.new_goods h3{
+	height:33px;
+	line-height:33px;
+	background-color:#fcfcfc;
+	border-bottom:1px solid #ededed;
+	font-weight:normal;
+	text-indent:10px;
+}
+.new_goods ul{
+	width:160px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.new_goods li{
+	border-bottom:1px solid #ededed;
+	margin-bottom:-1px;
+}
+.new_goods li img{
+	display:block;
+	width:160px;
+	height:160px;
+	margin:10px auto;
+}
+.new_goods li h4{
+	width:160px;
+	margin:0 auto;
+}
+.new_goods li h4 a{
+	font-weight:normal;
+	color:#666;
+	display:block;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.new_goods li .prize{
+	color:#da260e;
+	margin:10px auto;
+}
+
+/* 商品列表样式 */
+.sort_bar{
+	height:30px;
+	background-color:#f0fdec;
+}
+.sort_bar a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	padding:0 20px;
+	float:left;
+	color:#000;
+}
+.sort_bar .active{
+	background-color:#37ab40;
+	color:#fff;
+}
+
+/*商品列表*/
+.goods_type_list{
+	margin:10px auto 0;
+}
+.goods_type_list li{
+	width:190px;
+	float:left;
+	height: 240px;
+	border:1px solid #A2D2E9;
+	margin:10px 2px;
+}
+
+.goods_type_list li img{
+	width:160px;
+	height:160px;
+	display:block;
+	margin:10px auto;
+}
+
+.goods_type_list li:hover{
+	border-color: #F07B0D;
+}
+
+.goods_type_list li:hover img{
+	border-color: #638BBB;
+	opacity: 0.6;
+}
+
+.goods_type_list li h4{
+	width:160px;
+	margin:0 auto;
+}
+.goods_type_list li h4 a{
+	font-weight:normal;
+	color:#666;
+	display:block;
+	text-align:center;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+/*价格样式*/
+.operate{
+	width:160px;
+	margin:10px auto;
+	position:relative;
+}
+.operate .prize{
+	color:#da260e; 
+	font-size:14px;
+} 
+.operate .unit{
+	color:#999;
+	font-size:14px;
+	display:inline-block;
+	width: 90px;
+	text-align:center;
+}
+.operate .add_goods{
+	display:inline-block;
+	width:15px;
+	height:15px;
+	background:url(../images/shop_cart.png);
+	position:absolute;
+	right:0;
+	top:3px;
+}
+
+/* 分页样式 */
+.pagenation{
+	height:32px;
+	text-align:center;
+	margin:30px auto;
+}
+.pagenation li{
+	display:inline-block;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	margin-right: 10px;
+}
+.pagenation ul li a {
+	float: left;
+	padding: 4px 12px;
+	line-height: 20px;
+	background-color:#CCC;
+	border: 1px solid #d3dbde;
+	color: #08c;
+}
+.pagenation .active{
+	background-color:gold;
+	color:#43a200;
+}
+.pagenation ul li a:hover{
+	color: red;
+}

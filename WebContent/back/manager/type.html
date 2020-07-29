@@ -1,0 +1,99 @@
+
+<table id="type_data" data-option="fit:true"></table>
+
+<script>
+var statusObj = [{tid:0 , tname:"不可用"}   ,{tid : 1 ,tname:"可用"}];
+var types_editRow = undefined;
+var types_op;
+var type_flag;
+var types_obj = $('#type_data').datagrid({
+	url:'../../type',
+	queryParams:{op:"findAll"},
+	fitColumns:true,
+	loadMsg:'数据加载中，请稍后...',
+	striped:true,   //斑马线效果
+	sortName:"tno",  //定义那些列可以进行排序
+	remoteSort:false,
+	
+	columns:[[
+		{field:'tno' ,title:'类型编号' , width:50 , align:'center' , sortable:true},
+		{field:'tname' ,title:'类型名称' , width:100 , align:'center' },
+		{field:'pic' ,title:'类型图片' , width:100 , align:'center' ,formatter:function(val , row , index){
+			return "<img src='../../"+val +"'width='50px' height='50px'/>";
+		},editor :{type :"text" , options:{required : true } } },
+		{field : 'status' , title : '类型状态' , width : 50 , align : 'center ' ,formatter : function(val , row ,index){
+			if(val ==0){
+				return "不可用";
+			} else {
+				return "可用";
+			}
+		},editor:{type : "combobox" , options : {required : true , valueField : "tid" , textField : "tname" , data : statusObj}}}
+	]], 
+	
+	toolbar : [{
+		text : "添加",
+		iconCls : 'icon-add',
+		handler : function(){
+			types_op = "add",
+			type_flag = "添加";
+			
+			if(types_editRow == undefined){
+				types_obj.datagrid('insertRow',{index:0 , row:{} });  //插入一行
+				types_obj.datagrid("beginEdit", 0 );   ///编辑一行
+				types_editRow = 0 ; 
+			}
+		}
+	},'-',{
+		text : "编辑",
+		iconCls : 'icon-save',
+		handler : function(){
+			types_op = "update";
+			types_flag = "修改";
+			
+		}
+	},'-',{
+		text : "保存",
+		iconCls :'icon-save',
+		handler : function(){
+			if(types_editRow == undefined){
+				return ;
+			}
+			
+			//结束编辑
+			types_obj.datagrid("endEdit", types_editRow);
+			
+			//获取修改的内容
+			var row = types_obj.datafrid("getChanges")[0];
+			
+			row["op"] = typea_op ; //row.op = types_op;
+			
+			//提交到后台
+			$.post("../../type" ,row ,function(data){
+				data = ParseInt($.trim(data));  
+				if(data > 0){
+					$.messager.show({title:'成功提示' , msg: types_flag + ' 添加商品类型成功 ...' , timeout : 2000 , showType : 'slide'});
+					types_obj.datagrid("reload");  //刷新表格
+				} else {
+					$.message.alert('失败提示', types_flag + '添加商品类型失败 ...' , 'error');
+				}
+				row =null;
+				types_editRow = undefinded;
+			},"text");
+			
+		}
+	},'-',{
+		text : "撤销",
+		iconCls : 'icon-undo',
+		handler : function(){
+			types_obj.datagrid("rejectChanges");
+			types_ediRow = undefined;
+		}
+		
+	},]
+	
+});
+
+
+
+</script>
+		

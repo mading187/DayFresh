@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*版权所有样式*/
+.footer{
+	border-top:2px solid #42ad46;
+	text-align:center;
+	margin:30px 0;
+}
+.foot_link{
+	margin-top:30px;
+}
+.foot_link a,.foot_link span{
+	color:#4e4e4e;	
+} 
+.foot_link a:hover{
+	color:#ff8888;	
+}
+.foot_link span{
+	padding:0 10px;	
+}
+.footer p{
+	margin-top:10px;
+}

@@ -1,0 +1,101 @@
+
+<table id="view-goods-data" data-option="fit:true"></table>
+<div id="view_goods_search">
+	<a href="javascript:openAddGoodsDialog()" class="easyui-linkbutton"
+		data-options="iconCls:'icon-add' , plain:true" style="float: left">添加</a>
+	<div class="datagrid-btn-sepaeator"></div>
+	<label>商品类型</label> <select id="view_goods_search_tno">
+		<option value=''>--请选择--</option>
+	</select> <label>商品名称:</label> <input type="text" placeholder="请输入商品名称..."
+		id="view_goods_search_gname" /> <a
+		href="javascript:searchGoodsInfo()" class="easyui-linkbutton"
+		data-options="iconCla:'icon-search'">查询</a>
+</div>
+
+<div id="view_goods_dialog" data-options="closed:true"></div>
+<script>
+
+$(function(){
+	$.post("../../type" , {op:"findAll"} , data =>{
+		var str = "";
+		$.each(data , function(index,item){
+			str +="<option value='"  + item.tno+ "'>" + item.tname +"</option>";
+		})
+		$("#view_goods_search_tno").append($(str));
+		console.info(str);
+	},"json")
+})
+
+var view_goods_obj;
+
+var view_goods_obj = $('#view-goods-data').datagrid({
+	url:'../../goods',
+	queryParams:{op:"finds"},
+	fitColumns:true,
+	loadMsg:'数据加载中，请稍后...',
+	striped:true,   //斑马线效果
+	sortName:"gno",  //定义那些列可以进行排序
+	sortOrder : "desc",
+	remoteSort:false,
+	singleSelect : true,
+	pagination : true,
+	rownumbers:true,
+	pagesize : 10,
+	pageList : [10 , 15, 20 , 30 , 40 ,50 , 100],
+	
+	columns:[[
+		{field:'gno' ,title:'商品编号' , width:50 , align:'center' , sortable:true},
+		{field:'gname' ,title:'商品名称' , width:100 , align:'center' },
+		{field:'tname' ,title:'类型名称' , width:100 , align:'center' },
+		{field:'price' ,title:'商品价格' , width:50 , align:'center' },
+		{field:'unit' ,title:'商品库存' , width:100 , align:'center' },
+		{field:'intro' ,title:'商品简介' , width:200 , align:'center' },
+		{field:'-operator' ,title:'操作' , width:200 , align:'center'  , formatter:function(val , row , index){
+			var str = '<a href="javascript:void(0)" class="navy-icon-book-open">详细</a>';
+			str +='<a href="javascript:void(0)" class="navy-iconadd">添加</a>';
+			return str;
+		} },
+	]],
+	toolbar :"#view_goods_search"
+});
+
+function openAddGoodsDialog(){
+	$("#view_goods_dialog").dialog({
+		title : "添加管理",
+		width:600,
+		hight:400,
+		closed : false,
+		cache:false,
+		iconCls:"icon-add",
+		modal:true,
+		buttons:[{
+			text : "确定",
+			iconCls:"icon-ok",
+			handler:function(){
+				alert("确定");
+			}
+		},{
+			text:"取消",
+			iconCls:"icon-cancle",
+			handler:function(){
+					$("view_goods_dialog").dialog('close');
+				}
+		}]
+		
+	});
+}
+
+
+function searchGoodsInfo(){
+	var tno = $.trim($("#view_goods_search_tno").val());
+	var gname = $.trim($("#view_goods_search_gname").val());
+	
+	view_goods_obj.datagrid({
+		url : "../../goods",
+		queryParams:{op:"findByCondition" , tno : tno , gname : gname}
+	
+		})
+	}
+	
+	
+</script>
